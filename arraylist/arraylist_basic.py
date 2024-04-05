@@ -6,10 +6,17 @@ class ArrayList:
         self.size = size
         self.data = [None]*size
 
-    def __getitem__(self, index):
+    def __getitem__(self, index: int):
         if index<0 or index > self.size:
             raise IndexError("ArrayList Index out of Range")
-        self.data[]
+        return self.data[index]
+
+    def __setitem__(self, index, value):
+        if index<0 or index>self.size:
+            raise IndexError("ArrayList Index out of Range")
+        self.data[index]=value
+
+
 
 
 
