@@ -1,3 +1,5 @@
 .idea
 arraylist/__pycache__/
 arraylist/__pycache__
+.coverage
+hash_map/__pycache__/

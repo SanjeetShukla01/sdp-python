@@ -10,9 +10,10 @@ test-pylint:
 		$(PY_MODULES)
 
 test-unit:
-	python -m unittest discover test/
+	python -m unittest discover -s . -p 'test_*.py'
+
 
 coverage:
-	coverage run --source=. -m unittest discover test/
+	coverage run --source=. -m unittest discover -s . -p 'test_*.py'
 	coverage report --fail-under=80
 	coverage html
