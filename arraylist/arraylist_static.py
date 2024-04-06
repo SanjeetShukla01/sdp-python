@@ -1,5 +1,11 @@
 class ArrayList:
     def __init__(self, size: int) -> None:
+        """
+        Initializes a new ArrayList instance with the specified size.
+        :param size: The initial size of the ArrayList.
+                     It must be a non-negative integer.
+                     If the size is negative, a ValueError is raised.
+        """
         if size < 0:
             raise ValueError("ArrayList size can not be Negative")
         self.size = size
@@ -59,7 +65,3 @@ class ArrayList:
                         self.data[i] = data
                         return "Element added at index {}".format(i)
                 return "List is full, cannot add more elements"
-
-
-
-

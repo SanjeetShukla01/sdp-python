@@ -109,6 +109,15 @@ class TestArrayList(unittest.TestCase):
         self.assertEqual(len(arr), size)
         self.assertEqual(arr.data, [None])
 
+    def test_list_reverse_method(self):
+        arr = ArrayList(5)
+        for _ in range(5):
+            arr[_] = _+5
+        print(arr)
+        arr.data.reverse()
+        print(arr)
+        # self.assertEqual(arr.data, [10, 12, 15, None, None])
+
 
 if __name__ == '__main__':
     unittest.main()
