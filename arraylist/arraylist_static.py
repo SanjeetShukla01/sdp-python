@@ -72,3 +72,4 @@ class ArrayList:
                 raise TypeError("New element has a different data type than list data_type")
         else:
             return self._add_to_next_empty(data)
+
