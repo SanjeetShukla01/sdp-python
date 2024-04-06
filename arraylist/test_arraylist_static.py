@@ -1,6 +1,6 @@
 import unittest
 
-from arraylist.arraylist_basic import ArrayList
+from arraylist.arraylist_static import ArrayList
 
 
 class TestArrayList(unittest.TestCase):
