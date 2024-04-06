@@ -109,14 +109,50 @@ class TestArrayList(unittest.TestCase):
         self.assertEqual(len(arr), size)
         self.assertEqual(arr.data, [None])
 
-    def test_list_reverse_method(self):
+    def test_add_element_same_type_empty_list(self):
         arr = ArrayList(5)
-        for _ in range(5):
-            arr[_] = _+5
-        print(arr)
-        arr.data.reverse()
-        print(arr)
-        # self.assertEqual(arr.data, [10, 12, 15, None, None])
+        result = arr.add_element(10)
+        self.assertEqual(result, "Element added at index 0, list_data_type set to int")
+        self.assertEqual(arr.data, [10, None, None, None, None])
+
+    def test_add_element_same_type_non_empty_list(self):
+        arr = ArrayList(5)
+        arr.add_element(10)
+        arr.add_element(12)
+        result = arr.add_element(15)
+        self.assertEqual(result, "Element added at index 2")
+        self.assertEqual(arr.data, [10, 12, 15, None, None])
+
+    def test_add_element_diff_type_homogeneous_elements(self):
+        arr = ArrayList(5)
+        arr.add_element(10)
+        arr.add_element(12)
+        with self.assertRaises(TypeError):
+            arr.add_element("15")
+        self.assertEqual(arr.data, [10, 12, None, None, None])
+
+    def test_add_element_diff_type_heterogeneous_elements(self):
+        arr = ArrayList(5, [10, 12, "15", None, None])
+        self.assertEqual(arr.data, [10, 12, "15", None, None])
+
+    def test_add_element_to_heterogeneous_list(self):
+        arr = ArrayList(5, [10, 12, "15", None, None])
+        arr.add_element(23)
+        arr.add_element('sam')
+        self.assertEqual(arr.data, [10, 12, "15", 23, "sam"])
+
+    def test_add_element_full_list(self):
+        arr = ArrayList(3)
+        arr.add_element(10)
+        arr.add_element(12)
+        arr.add_element(15)
+        result = arr.add_element(20)
+        self.assertEqual(result, "List is full, cannot add more elements")
+        self.assertEqual(arr.data, [10, 12, 15])
+
+    def test_add_element_negative_size(self):
+        with self.assertRaises(ValueError):
+            arr = ArrayList(-5)
 
 
 if __name__ == '__main__':

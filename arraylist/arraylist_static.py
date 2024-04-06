@@ -1,5 +1,5 @@
 class ArrayList:
-    def __init__(self, size: int) -> None:
+    def __init__(self, size: int, initial_data=None) -> None:
         """
         Initializes a new ArrayList instance with the specified size.
         :param size: The initial size of the ArrayList.
@@ -9,8 +9,8 @@ class ArrayList:
         if size < 0:
             raise ValueError("ArrayList size can not be Negative")
         self.size = size
-        self.data = [None] * size
-        self.data_type = None
+        self.data = initial_data if initial_data else [None] * size
+        self.data_type = "hetero" if initial_data else None
 
     def __getitem__(self, index: int):
         if index < 0 or index > self.size:
@@ -21,12 +21,26 @@ class ArrayList:
         if index < 0 or index > self.size:
             raise IndexError("ArrayList Index out of Range")
         self.data[index] = value
+        self.data_type = type(value)
 
     def __len__(self):
         return self.size
 
     def __str__(self) -> str:
         return str(self.data)
+
+    def _add_to_next_empty(self, data):
+        """
+        Add an element to the next empty location in the list.
+
+        :param data: The element to add.
+        :return: A message indicating the result of the operation.
+        """
+        for i in range(self.size):
+            if self.data[i] is None:
+                self.data[i] = data
+                return "Element added at index {}".format(i)
+        return "List is full, cannot add more elements"
 
     # Implementing Basic methods of python list
 
@@ -46,22 +60,15 @@ class ArrayList:
             return "Element added at index 0, list_data_type set to {}".format(self.data_type.__name__)
 
             # If elements already exist
-        else:
-            # Check if all existing elements have the same data type
-            if all(isinstance(elem, self.data_type) for elem in self.data if elem is not None):
-                # Check if the new element has the same data type as list_data_type
-                if isinstance(data, self.data_type):
-                    for i in range(self.size):
-                        if self.data[i] is None:
-                            self.data[i] = data
-                            return "Element added at index {}".format(i)
-                    return "List is full, cannot add more elements"
-                else:
-                    raise TypeError("New element has a different data type than list data_type")
+        elif self.data_type == "hetero":
+            # List is heterogeneous, add the element to the next empty location without type check
+            return self._add_to_next_empty(data)
+
+        elif all(isinstance(elem, self.data_type) for elem in self.data if elem is not None):
+            # Check if the new element has the same data type as list_data_type
+            if isinstance(data, self.data_type):
+                return self._add_to_next_empty(data)
             else:
-                # List is heterogeneous, add the element to the next empty location without type check
-                for i in range(self.size):
-                    if self.data[i] is None:
-                        self.data[i] = data
-                        return "Element added at index {}".format(i)
-                return "List is full, cannot add more elements"
+                raise TypeError("New element has a different data type than list data_type")
+        else:
+            return self._add_to_next_empty(data)

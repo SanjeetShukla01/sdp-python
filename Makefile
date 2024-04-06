@@ -19,4 +19,6 @@ coverage:
 	coverage html
 
 document:
+	mkdir -p doc
 	python -m pydoc -w $(PY_MODULES)
+	mv *.html doc

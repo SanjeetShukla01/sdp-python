@@ -6,3 +6,4 @@ linked_list/__pycache__/
 hash_map/__pycache__/
 htmlcov
 .mypy_cache
+doc
