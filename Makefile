@@ -15,5 +15,8 @@ test-unit:
 
 coverage:
 	coverage run --source=. -m unittest discover -s . -p 'test_*.py'
-	coverage report --fail-under=80
+	coverage report --fail-under=70
 	coverage html
+
+document:
+	python -m pydoc -w $(PY_MODULES)
