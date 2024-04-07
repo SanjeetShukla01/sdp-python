@@ -25,3 +25,10 @@ The any() function in Python is a built-in function that returns True if at leas
 
 ### Python all() builtin function:
 While any() returns True if at least one element in the iterable is True, all() returns True only if all elements in the iterable are True. If the iterable is empty, all() also returns True.
+
+### What is @property decorator in python?
+
+In Python, the @property decorator is a built-in decorator that allows you to define methods that can be accessed like attributes. It allows you to define a method that can be called without parentheses, making it look like a simple attribute access. The @property decorator is commonly used to implement getter methods in object-oriented programming.
+Best explanation: https://www.programiz.com/python-programming/property
+
+### 

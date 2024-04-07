@@ -18,7 +18,7 @@ coverage:
 	coverage report --fail-under=70
 	coverage html
 
-document:
+doc:
 	mkdir -p doc
 	python -m pydoc -w $(PY_MODULES)
 	mv *.html doc
