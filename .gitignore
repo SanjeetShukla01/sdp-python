@@ -2,6 +2,7 @@
 arraylist/__pycache__/
 arraylist/__pycache__
 linked_list/__pycache__/
+arraylist/test/__pycache__/
 .coverage
 hash_map/__pycache__/
 htmlcov

@@ -154,6 +154,12 @@ class TestArrayList(unittest.TestCase):
         with self.assertRaises(ValueError):
             arr = ArrayList(-5)
 
+    def test_arraylist_dict(self):
+        arr = ArrayList(3)
+        dicts = arr.__dict__
+        keys = dicts.keys().__str__()
+        self.assertEqual("dict_keys(['size', 'data', 'data_type'])", keys)
+
 
 if __name__ == '__main__':
     unittest.main()
