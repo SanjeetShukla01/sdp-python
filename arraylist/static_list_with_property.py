@@ -17,6 +17,10 @@ class ArrayListProp:
         print("Returning data...")
         return self._data
 
+    # @data.setter
+    # def data(self, data):
+    #     self._data = data
+    #
     @property
     def size(self):
         print("Returning size...")
@@ -37,7 +41,6 @@ class ArrayListProp:
     def data_type(self, value):
         self._data_type = value
 
-
     def __getitem__(self, index: int):
         if index < 0 or index >= self.size:
             raise IndexError("ArrayList Index out of Range")
@@ -46,7 +49,7 @@ class ArrayListProp:
     def __setitem__(self, index, value):
         if index < 0 or index >= self.size:
             raise IndexError("ArrayList Index out of Range")
-        self.data[index] = value
+        self._data[index] = value
         self.data_type = type(value)
 
     def __len__(self):
@@ -64,7 +67,7 @@ class ArrayListProp:
         """
         for _ in range(self.size):
             if self.data[_] is None:
-                self.data[_] = data
+                self._data[_] = data
                 return "Element added at index {}".format(_)
         return "List is full, cannot add more elements"
 
@@ -90,7 +93,7 @@ class ArrayListProp:
             # List is heterogeneous, add the element to the next empty location without type check
             return self._add_to_next_empty(data)
 
-        elif all(isinstance(elem, self.data_type) for elem in self.data if elem is not None):
+        elif all(isinstance(elem, self.data_type) for elem in self._data if elem is not None):
             # Check if the new element has the same data type as list_data_type
             if isinstance(data, self.data_type):
                 return self._add_to_next_empty(data)
