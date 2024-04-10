@@ -34,7 +34,7 @@ class DynamicList:
 
     def append(self, element):
         if self.size == self.capacity:
-            self.resize(self.capacity * 2)
+            self._resize(self.capacity * 2)
         self.array[self.size] = element
         self.size += 1
 
