@@ -1,5 +1,5 @@
 import unittest
-from arraylist.arraylist_dynamic import DynamicList
+from data_structures.arraylist_dynamic import DynamicList
 
 
 class TestDynamicList(unittest.TestCase):
