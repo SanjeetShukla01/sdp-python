@@ -46,6 +46,35 @@ class LinkedList:
             current_node = current_node.next
         print("None")
 
+    def size_of_ll(self):
+        size = 0
+        if self.head:
+            current_node = self.head
+            while current_node:
+                size = size + 1
+                current_node = current_node.next
+            return size
+        else:
+            return 0
+
+    def insert_at_index(self, data, index):
+        new_node = Node(data)
+        current_node = self.head
+        position = 0
+        if index == position:
+            new_node.next = self.head
+            self.head = new_node
+        else:
+            while (current_node is not None) and position+1 != index:
+                position = position + 1
+                current_node = current_node.next
+
+            if current_node is not None:
+                new_node.next = current_node.next
+                current_node.next = new_node
+            else:
+                print("index not present")
+
 
 if __name__ == "__main__":
     ll = LinkedList()
@@ -54,5 +83,7 @@ if __name__ == "__main__":
     ll.append(3)
     ll.prepend(0)
     ll.print_list()  # Output: 0 -> 1 -> 2 -> 3 -> None
+    print(ll.size_of_ll())
     ll.delete(2)
     ll.print_list()  # Output: 0 -> 1 -> 3 -> None
+    print(ll.size_of_ll())
