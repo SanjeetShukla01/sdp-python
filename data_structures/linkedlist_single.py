@@ -97,6 +97,14 @@ class LinkedList:
         previous_node.next = current_node.next
         current_node = None
 
+    def delete_value(self, value):
+        current_node = self.head
+        if current_node.data == value:
+            self.head = self.head.next
+            current_node = self.head
+
+        while current_node is not None:
+
 
 
 

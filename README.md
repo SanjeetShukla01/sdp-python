@@ -1,6 +1,9 @@
 # sdp-python
 
 
+Cover these:
+    Union(str|None) ..
+    Similar concepts if exists like Any, All etc
 
 
 
