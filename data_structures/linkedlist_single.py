@@ -75,6 +75,30 @@ class LinkedList:
             else:
                 print("index not present")
 
+    def delete_at_index(self, index):
+        if index < 0:
+            print("Index must be non-negative")
+            return
+        if index < 0:
+            self.head = self.head.next
+            return
+
+        position = 0
+        current_node = self.head
+        previous_node = None
+
+        while position != index and current_node is not None:
+            previous_node = current_node
+            position = position + 1
+            current_node = current_node.next
+        if not current_node:
+            print("Index out of range")
+            return
+        previous_node.next = current_node.next
+        current_node = None
+
+
+
 
 if __name__ == "__main__":
     ll = LinkedList()
