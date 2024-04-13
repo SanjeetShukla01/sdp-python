@@ -98,14 +98,22 @@ class LinkedList:
         current_node = None
 
     def delete_value(self, value):
+        if not self.head:
+            print("List is empty")
+            return
+
         current_node = self.head
+
         if current_node.data == value:
             self.head = self.head.next
             current_node = self.head
 
-        while current_node is not None:
-
-
+        while current_node.next is not None:
+            if current_node.next.data == value:
+                current_node.next = current_node.next.next
+            else:
+                current_node = current_node.next
+        print("Value not found in the list")
 
 
 if __name__ == "__main__":
