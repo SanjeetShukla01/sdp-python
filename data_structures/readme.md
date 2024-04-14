@@ -1,3 +1,5 @@
+![img.png](img.png)
+
 ### Does array list holds data of different type?  
 In Python list can hold elements of different type. 
 
