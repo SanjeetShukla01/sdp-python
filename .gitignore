@@ -4,7 +4,7 @@ data_structures/__pycache__
 linked_list/__pycache__/
 data_structures/test/__pycache__/
 .coverage
-hash_map/__pycache__/
+data_structures/hash_map/__pycache__/
 htmlcov
 .mypy_cache
 doc
