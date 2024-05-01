@@ -1,4 +1,7 @@
 # https://github.com/donnemartin/system-design-primer/blob/master/solutions/object_oriented_design/hash_table/hash_map.ipynb
+# A HashMap is a data structure used in computer science to store key-value pairs. It provides an efficient way to
+# retrieve, insert, or delete elements based on their keys.
+
 
 class Item(object):
 
