@@ -14,4 +14,4 @@
 #         [[-3, 0, 3], [-3, 1, 2], [-2, -1, 3], [-2, 0, 2], [-1, 0, 1]]
 
 def triplets_with_zero_sum(arr: list) -> list:
-    list()
+    return list()
